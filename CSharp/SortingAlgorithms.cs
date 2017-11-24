@@ -1,13 +1,25 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace CSharp
 {
     class SortingAlgorithms
     {
+        public static void Print(int[] arr, bool sorted = false)
+        {
+            StringBuilder sortedArray = new StringBuilder();
+
+            for (int i = 0; i < arr.Length; i++)
+            {
+                sortedArray.Append(arr[i] + " ");
+            }
+
+            if(sorted)
+                Console.WriteLine(sortedArray.Append("- sorted"));
+            else
+                Console.WriteLine(sortedArray.Append("- unsorted"));
+        }
+
         // Swaps two values in an array
         public static void Exchange(ref int[] arr, int m, int n)
         {
@@ -18,7 +30,7 @@ namespace CSharp
         }
 
         // Insertion sort
-        public static void InsertionSort(ref int[] arr)
+        public static void InsertionSort(int[] arr)
         {
             int temp, j;
 
@@ -34,7 +46,11 @@ namespace CSharp
 
                 arr[j + 1] = temp;
             }
+
+            Print(arr,true);
         }
+
+
 
     }
 }
